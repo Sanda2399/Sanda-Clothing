@@ -19,7 +19,7 @@
 .menu-item:hover .content {
   opacity: 0.9;
 }
-.menu-item .large {
+.menu-item.large {
   height: 400px;
 }
 .menu-item:first-child {
