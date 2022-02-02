@@ -1,24 +1,25 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
+// Styling
 import './App.css';
 
+// Header Import
+import Header from './Components/Header/Header';
+
+// Page Imports
 import HomePage from './Pages/Homepage/Homepage';
+import ShopPage from './Pages/ShopPage/ShopPage';
 
-const HatsPage = () => {
-  return (
-    <div>
-      <h1>HATS PAGE</h1>
-    </div>
-  );
-}
 
+// Main App
 function App() {
   return (
     <div>
+      <Header />
       <Routes>
         <Route exact path="/" element={<HomePage />} />
-        <Route exact path="/shop/hats" element={<HatsPage />} />
+        <Route exact path="/shop" element={<ShopPage />} />
       </Routes>
     </div>
   );
