@@ -6,17 +6,16 @@
   margin-bottom: 25px;
 }
 .header .logo-container {
-  height: 100%;
-  width: 70px;
-  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .header .options {
-  width: 50%;
-  height: 100%;
+  width: 20%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 .header .options .option {
-  padding: 10px 15px;
+  font-size: 18px;
 }/*# sourceMappingURL=Header.css.map */

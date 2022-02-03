@@ -3,7 +3,7 @@ import React from "react";
 // import './Styling/ShopPage.css';
 
 import SHOP_DATA from './ShopData';
-import CollectionPreviewItem from '../../Components/CollectionPreviewItem/CollectionPreviewItem';
+import CollectionPreview from '../../Components/CollectionPreview/CollectionPreview';
 
 class ShopPage extends React.Component
 {
@@ -25,7 +25,7 @@ class ShopPage extends React.Component
                 {
                     collections.map(({ id, ...OtherProps }) => {
                         return (
-                            <CollectionPreviewItem key={id} {...OtherProps} />
+                            <CollectionPreview key={id} {...OtherProps} />
                         )
                     })
                 }
