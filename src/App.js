@@ -10,6 +10,7 @@ import Header from './Components/Header/Header';
 // Page Imports
 import HomePage from './Pages/Homepage/Homepage';
 import ShopPage from './Pages/ShopPage/ShopPage';
+import SignInPage from './Pages/SignInPage/SignInPage';
 
 
 // Main App
@@ -20,6 +21,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/shop" element={<ShopPage />} />
+        <Route exact path="/signin" element={<SignInPage />} />
       </Routes>
     </div>
   );
