@@ -34,13 +34,15 @@ class App extends React.Component
   // Lifecycle Methods
   componentDidMount()
   {
-   this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+    // Sets up the firebase 'subscription'.
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
       this.setState({ currentUser : user });
     });
   }
 
   componentWillUnmount()
   {
+    // Closes the firebase subscription.
     this.unsubscribeFromAuth();
   }
 
@@ -49,7 +51,7 @@ class App extends React.Component
   {
     return (
       <div>
-        <Header />
+        <Header currentUser={this.state.currentUser} />
         <Routes>
           <Route exact path="/" element={<HomePage />} />
           <Route exact path="/shop" element={<ShopPage />} />
