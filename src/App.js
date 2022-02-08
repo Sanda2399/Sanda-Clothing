@@ -13,10 +13,9 @@ import ShopPage from './Pages/ShopPage/ShopPage';
 import SignInPage from './Pages/SignInPage/SignInPage';
 
 // Authentication
-import { auth } from './Firebase/firebase.utils';
+import { auth, createUserProfileDocument } from './Firebase/firebase.utils';
 
 
-// Main App
 class App extends React.Component 
 {
   constructor(props)
@@ -28,15 +27,34 @@ class App extends React.Component
     }
   }
 
-  // Member Variables
+  ////// Member Variables //////
   unsubscribeFromAuth = null;
 
-  // Lifecycle Methods
+
+  ////// Lifecycle Methods ///////
   componentDidMount()
   {
     // Sets up the firebase 'subscription'.
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser : user });
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuthObject => {
+      if (userAuthObject)
+      {
+        const userRef = await createUserProfileDocument(userAuthObject);
+
+        userRef.onSnapshot(snapshotObject => {
+          this.setState(
+            {
+              currentUser : {
+                id : snapshotObject.id,
+                ...snapshotObject.data()
+              }
+            }
+          );
+        });
+      }
+      else 
+      {
+        this.setState({currentUser : userAuthObject});
+      }
     });
   }
 
@@ -46,7 +64,8 @@ class App extends React.Component
     this.unsubscribeFromAuth();
   }
 
-  // Main Render 
+
+  ////// Main Render //////
   render()
   {
     return (
