@@ -32,7 +32,6 @@ export const signInWithGoogle = () => {
     auth.signInWithPopup(provider);
 }
 
-
 ////////// FIRESTORE DATABASE ///////////
 // Used for when we need to access the DB.
 export const firestore = firebase.firestore();
